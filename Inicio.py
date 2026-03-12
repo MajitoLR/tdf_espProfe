@@ -8,12 +8,7 @@ from nltk.stem import SnowballStemmer
 st.title("🔍 Demo TF-IDF en Español")
 
 # Documentos de ejemplo
-default_docs = """El perro ladra fuerte en el parque.
-El gato maúlla suavemente durante la noche.
-El perro y el gato juegan juntos en el jardín.
-Los niños corren y se divierten en el parque.
-La música suena muy alta en la fiesta.
-Los pájaros cantan hermosas melodías al amanecer."""
+default_docs = """El Deportivo Independiente Medellín es un equipo de fútbol colombiano. Fue fundado en 1913. Es de la ciudad de Medellín. Sus colores son rojo y azul. Tiene una hinchada muy apasionada. Juega en la liga profesional colombiana. También es conocido como DIM. Es uno de los clubes más antiguos de Colombia."""
 
 # Stemmer en español
 stemmer = SnowballStemmer("spanish")
@@ -35,30 +30,6 @@ col1, col2 = st.columns([2, 1])
 with col1:
     text_input = st.text_area("📝 Documentos (uno por línea):", default_docs, height=150)
     question = st.text_input("❓ Escribe tu pregunta:", "¿Dónde juegan el perro y el gato?")
-
-with col2:
-    st.markdown("### 💡 Preguntas sugeridas:")
-    
-    # NUEVAS preguntas optimizadas para mayor similitud
-    if st.button("¿Dónde juegan el perro y el gato?", use_container_width=True):
-        st.session_state.question = "¿Dónde juegan el perro y el gato?"
-        st.rerun()
-    
-    if st.button("¿Qué hacen los niños en el parque?", use_container_width=True):
-        st.session_state.question = "¿Qué hacen los niños en el parque?"
-        st.rerun()
-        
-    if st.button("¿Cuándo cantan los pájaros?", use_container_width=True):
-        st.session_state.question = "¿Cuándo cantan los pájaros?"
-        st.rerun()
-        
-    if st.button("¿Dónde suena la música alta?", use_container_width=True):
-        st.session_state.question = "¿Dónde suena la música alta?"
-        st.rerun()
-        
-    if st.button("¿Qué animal maúlla durante la noche?", use_container_width=True):
-        st.session_state.question = "¿Qué animal maúlla durante la noche?"
-        st.rerun()
 
 # Actualizar pregunta si se seleccionó una sugerida
 if 'question' in st.session_state:
